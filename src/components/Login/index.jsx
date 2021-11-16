@@ -11,7 +11,7 @@ function Login() {
   const [login, setLogin] = useState(false);
 
   const schema = yup.object().shape({
-    email: yup.string().required("E-mail obrigatório"),
+    username: yup.string().required("Nome do usuário obrigatório"),
     password: yup.string().required("Senha obrigatória"),
   });
 
@@ -27,10 +27,12 @@ function Login() {
     axios
       .post("https://kenzieshop.herokuapp.com/sessions/", data)
       .then((response) => {
+        console.log(response);
         setUser("Requisição completa");
         setLogin(true);
       })
       .catch((error) => {
+        console.log(error);
         setUser("Requisição falhou");
         setLogin(false);
       });
@@ -39,8 +41,8 @@ function Login() {
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input type="text" placeholder="E-mail" {...register("email")} />
-        <p>{errors.email?.message}</p>
+        <input type="text" placeholder="Usuário" {...register("username")} />
+        <p>{errors.username?.message}</p>
         <input type="password" placeholder="Senha" {...register("password")} />
         <p>{errors.password?.message}</p>
         <button type="submit">Login</button>

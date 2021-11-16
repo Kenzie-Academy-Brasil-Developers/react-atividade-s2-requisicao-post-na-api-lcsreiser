@@ -21,11 +21,22 @@ form {
   background-color: grey;
 }
 
+p {
+  color: whitesmoke;
+}
+
+button {
+  background: royalblue;
+  height: 5vh;
+  width: 14vw;
+  color: white;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
 .green {
   color: green;
-  background-color: seashell;
 }
 .red {
   color: red;
-  background-color: seashell;
 }
